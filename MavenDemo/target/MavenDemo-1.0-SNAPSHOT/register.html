@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div class="form-div">
+    <div class="reg-content">
+        <h1> welcome</h1>
+        <span>log in</span> <a href="#"> log in</a>
+    </div>
+    <form id="reg-form" action="#" method="get">
+        <table>
+            <tr>
+                <td> username</td>
+                <td class="input">
+                    <label for="username"></label><input name="username" type="text" id="username">
+                    <br>
+                    <span id="username_err" class="err_msg" style="display: none"> please check username</span>
+                </td>
+            </tr>
+            <tr>
+                <td> password</td>
+                <td class="input">
+                    <label for="password"></label><input name="password" type="password" id="password">
+                    <br>
+                    <span id="password_err" class="err_msg" style="display: none"> please check password</span>
+                </td>
+            </tr>
+            <tr>
+                <td> telephone</td>
+                <td class="input">
+                    <label for="tel"></label><input name="tel" type="text" id="tel">
+                    <br>
+                    <span id="tel_err" class="err_msg" style="display: none"> please check telephone number</span>
+                </td>
+            </tr>
+
+        </table>
+        <div class="button">
+            <input value="register" type="submit" id="reg_btn">
+        </div>
+    </form>
+</div>
+
+
+<script>
+    var getusername = document.getElementById("username");
+    getusername.onblur = function1;
+
+    function function1(){
+
+        var username = getusername.value.trim();
+        var reg = /^[a-zA-Z]{6,12}$/;
+        var b = reg.test(username);
+        // var b = username.length >=6 && username.length<=12 ;
+        if(b){
+            document.getElementById("username_err").style.display= "none";
+        } else{
+            document.getElementById("username_err").style.display= "";
+        }
+
+        return b;
+
+    }
+
+    var getpassword = document.getElementById("password");
+    getpassword.onblur = function2;
+
+    function function2(){
+        var password = getpassword.value;
+
+        var b = password.length >= 6 && password.length <= 12;
+
+
+
+        if(b){
+            document.getElementById("password_err").style.display="none";
+
+        } else {
+
+            document.getElementById("password_err").style.display="";
+        }
+        return b;
+
+    }
+
+    var gettele = document.getElementById("tel");
+    gettele.onblur = function3;
+    function function3(){
+        var tele = gettele.value.trim();
+        var reg = /^[0-9]{6}$/;
+        var b = reg.test(tele);
+
+
+        if(b){
+            document.getElementById("tel_err").style.display = "none";
+        }else{
+            document.getElementById("tel_err").style.display = "";
+        }
+        return b;
+    }
+
+
+
+    var getForm = document.getElementById("reg_form");
+        getForm.onsubmit = function (){
+            var flag = function1() && function2() && function3;
+            return flag;
+        }
+
+
+
+</script>
+</body>
+</html>
