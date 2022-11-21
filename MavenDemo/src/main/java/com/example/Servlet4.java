@@ -28,12 +28,9 @@ public class Servlet4 extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         resp.setContentType("text/html");
 
-        String resource = "mybatis.xml";
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory =
-                new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession session = InputSqlSession.input();
 
-        SqlSession session = sqlSessionFactory.openSession();
+
         UserMapper mapper = session.getMapper(UserMapper.class);
         List<Students> list = mapper.userMapper(name);
         System.out.println(list);
