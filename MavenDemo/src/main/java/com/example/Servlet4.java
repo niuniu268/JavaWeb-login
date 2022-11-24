@@ -23,17 +23,17 @@ import java.util.Set;
 public class Servlet4 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("username");
-        String password = req.getParameter("password");
-        PrintWriter writer = resp.getWriter();
-        resp.setContentType("text/html");
+        String name = req.getParameter( "username" );
+        String password = req.getParameter( "password" );
+        PrintWriter writer = resp.getWriter( );
+        resp.setContentType( "text/html" );
 
-        SqlSession session = InputSqlSession.input();
+        SqlSession session = InputSqlSession.input( );
 
 
-        UserMapper mapper = session.getMapper(UserMapper.class);
-        List<Students> list = mapper.userMapper(name);
-        System.out.println(list);
+        UserMapper mapper = session.getMapper( UserMapper.class );
+        List <Students> list = mapper.userMapper( name );
+        System.out.println( list );
         session.close();
 
         if (list == null){
@@ -41,9 +41,6 @@ public class Servlet4 extends HttpServlet {
         } else{
             writer.write("<h1> successful log in <h1>");
         }
-
-
-
     }
 
     @Override

@@ -21,6 +21,7 @@ public class ServletResp1 extends HttpServlet {
 
         PrintWriter writer = resp.getWriter();
         writer.write("<h1> test <h1>");*/
+
         ServletOutputStream stream = resp.getOutputStream();
         FileInputStream fileInputStream = new FileInputStream("/Users/Mac/IdeaProjects/Screenshot.png");
         FileOutputStream outputStream = new FileOutputStream("/Users/Mac/Downloads/screen1.png");
